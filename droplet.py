@@ -54,7 +54,7 @@ def newDroplet(gh_id=None, int_id=None):
         firebase.patch('/projects/%s/%s/' % (gh_id, int_id), data={'state': 'Creating droplet'})
     project = firebase.get('/projects/%s/%s' % (gh_id, int_id), name=None, params=None)
     num = random.randint(1111111,9999999)
-    images = {'flask':6219398,'sinatra':6219719}
+    images = {'flask':6219398,'sinatra':6219719,'php':6222492}
     newdrop = doPost('/droplets',
         {'name':'%s%s.dep10y.me' % (project['type'],num),
         'region':'nyc3',

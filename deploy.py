@@ -60,6 +60,8 @@ def doDeploy(project_id, fals):
         print po.wait()
         po = subprocess.Popen('/usr/bin/ssh %s -oStrictHostKeyChecking=no -oUserKnownHostsFile=/dev/null -l web \'screen -m -d /usr/bin/ruby /home/web/web/app.rb; echo `pidof SCREEN` > /home/web/.app_pid\'' % net, shell=True)
         print po.wait()
+    elif p['type'] == 'php':
+        print 'LOL PHP U NEED NO RELOAD'
     else:
         print('Unsupported type!')
         return False

@@ -7,7 +7,7 @@ from firebase import firebase, jsonutil
 from copy import deepcopy
 from threading import Thread
 
-TOKEN = '91a4cf30bfdaae8a3fa2a54d55fe7cfa79ce882bed94bff73f7db8c584c27817'
+TOKEN = '==key=='
 def doGet(path, args={}):
     print(args)
     resp = json.loads(requests.get('https://api.digitalocean.com/v2%s' % path, params=args, headers={'Authorization':'Bearer %s' % TOKEN}).text)
@@ -23,14 +23,14 @@ def doPost(path, args={}):
     return resp
 
 def doNC(args):
-    print(dict({'APIUser':'vacation9','APIKey':'8ce48ef919c7436e9be8d7d1567c80dc','UserName':'Vacation9','ClientIp':'129.97.250.143'}.items()+args.items()))
+    print(dict({'APIUser':'vacation9','APIKey':'==key==','UserName':'==user==','ClientIp':'==ip=='}.items()+args.items()))
     resp = requests.get('https://api.namecheap.com/xml.response', params=dict({'APIUser':'vacation9','APIKey':'8ce48ef919c7436e9be8d7d1567c80dc','UserName':'Vacation9','ClientIp':'129.97.250.143'}.items()+args.items())).text
     print resp
     return ET.fromstring(resp)
 
 def doNCPost(args):
-    print(dict({'APIUser':'vacation9','APIKey':'8ce48ef919c7436e9be8d7d1567c80dc','UserName':'Vacation9','ClientIp':'129.97.250.143'}.items()+args.items()))
-    resp = requests.post('https://api.namecheap.com/xml.response', data=dict({'APIUser':'vacation9','APIKey':'8ce48ef919c7436e9be8d7d1567c80dc','UserName':'Vacation9','ClientIp':'129.97.250.143'}.items()+args.items())).text
+    print(dict({'APIUser':'vacation9','APIKey':'==key==','UserName':'==user==','ClientIp':'==ip=='}.items()+args.items()))
+    resp = requests.post('https://api.namecheap.com/xml.response', data=dict({'APIUser':'==user==','APIKey':'==key==','UserName':'==user==','ClientIp':'==ip=='}.items()+args.items())).text
     return ET.fromstring(resp)
 
 def getRecords():

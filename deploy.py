@@ -9,7 +9,7 @@ from firebase import firebase, jsonutil
 from copy import deepcopy
 from threading import Thread
 
-TOKEN = '91a4cf30bfdaae8a3fa2a54d55fe7cfa79ce882bed94bff73f7db8c584c27817'
+TOKEN = ''
 def doGet(path, args={}):
     resp = json.loads(requests.get('https://api.digitalocean.com/v2%s' % path, params=args, headers={'Authorization':'Bearer %s' % TOKEN}).text)
     return resp
